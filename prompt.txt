@@ -12,3 +12,8 @@ ask to fix
 4. for game items.
  - make it get list of games by server side data.(node.js -> ejs)
  - make this list fill the width of screen.
+
+
+
+A suave, sophisticated male game player character designed for a casino game, portrait
+A suave, sophisticated female game player character designed for a casino game, portrait

@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <link
             rel="stylesheet"
@@ -7,16 +10,25 @@
             onload="this.rel='stylesheet'"
             href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
     />
-
-    <title>Galileo Design</title>
+    <title> GAME</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        @media (max-width: 768px) {
+            .banner-content {
+                flex-direction: column;
+            }
+            .login-form-container {
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-10 py-3">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-4 sm:px-10 py-3">
             <div class="flex items-center gap-4 text-[#1C160C]">
                 <div class="size-4">
                     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,142 +38,81 @@
                         ></path>
                     </svg>
                 </div>
-                <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]">OK GAME</h2>
+                <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]">BEST GAME</h2>
             </div>
-            <div class="flex flex-1 justify-end gap-8">
-                <div class="flex items-center gap-9">
-                    <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">홈</a>
-                    <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">스포츠북</a>
-                    <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">카지노</a>
-                    <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">라이브카지노</a>
-                    <a class="text-[#1C160C] text-sm font-medium leading-normal" href="#">프로모션</a>
-                </div>
-            </div>
+            <nav class="hidden sm:flex flex-1 justify-end gap-8">
+                <ul class="flex items-center gap-9">
+                    <% ['홈'].forEach(item => { %>
+                        <li><a class="text-[#1C160C] text-sm font-medium leading-normal" href="#<%= item %>"><%= item %></a></li>
+                    <% }); %>
+                </ul>
+            </nav>
+            <button class="sm:hidden text-[#1C160C]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </header>
-        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
-            <div class="layout-content-container flex flex-col max-w-[920px] flex-1">
-                <div class="@container">
-                    <div class="@[480px]:px-4 @[480px]:py-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#FFFFFF] @[480px]:rounded-xl min-h-80"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/c13c5aae-a5ad-45cc-a44b-2a965de4047d.png");'
-                        ></div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#1C160C] text-base font-medium leading-normal">OK LIVESPO</p>
-                            <p class="text-[#A18249] text-sm font-normal leading-normal">실시간 스포츠 게임</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#1C160C] text-base font-medium leading-normal">OK HOLD'EM</p>
-                            <p class="text-[#A18249] text-sm font-normal leading-normal">화끈한 쇼핸드 게임</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/9cd0c509-471c-4d9e-ab77-ddf8af7d7727.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#1C160C] text-base font-medium leading-normal">OK GOPO</p>
-                            <p class="text-[#A18249] text-sm font-normal leading-normal">멀티라인 슬롯머신 게임</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/1719c1ab-45c2-4734-ab00-3cffa561a91d.png");'
-                        ></div>
-                        <div>
-                            <p class="text-[#1C160C] text-base font-medium leading-normal">OK CASINO</p>
-                            <p class="text-[#A18249] text-sm font-normal leading-normal">15인 동시참가 토너먼트</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col gap-3 pb-3">
-                        <div
-                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                                style='background-image: url("https://cdn.usegalileo.ai/stability/4deb1a90-5a21-4cd0-8d18-f27db69dd3e6.png");'
-                        ></div>
-                        <p class="text-[#1C160C] text-base font-medium leading-normal">OK TOURNAMENT</p>
-                    </div>
+
+        <div class="w-full">
+            <div class="relative w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-[#FFFFFF] min-h-[400px]"
+                 style='background-image: url("https://cdn.usegalileo.ai/sdxl10/c13c5aae-a5ad-45cc-a44b-2a965de4047d.png");'>
+                <div class="banner-content absolute inset-0 flex items-center justify-end p-6 bg-black bg-opacity-50">
+                    <% if (isLoggedIn) { %>
+                        <%- include('user-profile', {
+                        username,
+                        cash,
+                        gold,
+                        silver,
+                        avatar_url
+                        }) %>
+                    <% } else { %>
+                        <%- include('login-form') %>
+                    <% } %>
                 </div>
             </div>
-            <div class="layout-content-container flex flex-col w-[360px]">
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label class="flex flex-col min-w-40 flex-1">
-                        <div class="flex w-full flex-1 items-stretch rounded-xl">
-                            <input
-                                    placeholder="아이디"
-                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1C160C] focus:outline-0 focus:ring-0 border border-[#E9DFCE] bg-[#FFFFFF] focus:border-[#E9DFCE] h-14 placeholder:text-[#A18249] p-[15px] rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal"
-                                    value=""
-                            />
-                            <div
-                                    class="text-[#A18249] flex border border-[#E9DFCE] bg-[#FFFFFF] items-center justify-center pr-[15px] rounded-r-xl border-l-0"
-                                    data-icon="CaretUpDown"
-                                    data-size="24px"
-                                    data-weight="regular"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                                    <path
-                                            d="M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z"
-                                    ></path>
-                                </svg>
-                            </div>
+        </div>
+
+
+        <div class="layout-content-container flex flex-col w-full px-4 sm:px-6 py-6">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                <% games.forEach(game => { %>
+                    <div class="flex flex-col gap-3 pb-3">
+                        <div
+                                class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+                                style='background-image: url("<%= game.image %>");'
+                        ></div>
+                        <div>
+                            <p class="text-[#1C160C] text-base font-medium leading-normal"><%= game.name %></p>
+                            <p class="text-[#A18249] text-sm font-normal leading-normal"><%= game.description %></p>
                         </div>
-                    </label>
-                </div>
-                <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-                    <label class="flex flex-col min-w-40 flex-1">
-                        <div class="flex w-full flex-1 items-stretch rounded-xl">
-                            <input
-                                    placeholder="비밀번호"
-                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#1C160C] focus:outline-0 focus:ring-0 border border-[#E9DFCE] bg-[#FFFFFF] focus:border-[#E9DFCE] h-14 placeholder:text-[#A18249] p-[15px] rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal"
-                                    value=""
-                            />
-                            <div
-                                    class="text-[#A18249] flex border border-[#E9DFCE] bg-[#FFFFFF] items-center justify-center pr-[15px] rounded-r-xl border-l-0"
-                                    data-icon="CaretUpDown"
-                                    data-size="24px"
-                                    data-weight="regular"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                                    <path
-                                            d="M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z"
-                                    ></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </label>
-                </div>
-                <div class="flex justify-center">
-                    <div class="flex flex-1 gap-3 max-w-[480px] flex-col items-stretch px-4 py-3">
-                        <button
-                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#019863] text-[#FFFFFF] text-base font-bold leading-normal tracking-[0.015em] w-full"
-                        >
-                            <span class="truncate">로그인</span>
-                        </button>
-                        <button
-                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#F4EFE6] text-[#1C160C] text-base font-bold leading-normal tracking-[0.015em] w-full"
-                        >
-                            <span class="truncate">회원가입</span>
-                        </button>
                     </div>
-                </div>
+                <% }); %>
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        fetch('/login', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/dashboard';
+                } else {
+                    alert('Login failed. Please check your credentials.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>
 </body>
 </html>
+
