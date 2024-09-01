@@ -24,10 +24,30 @@
     </div>
 
     <div class="grid grid-cols-2 gap-2">
-        <% ['내정보', '금고', '머니 이동', '보관함/메시지', '로그아웃'].forEach(action => { %>
+        <% ['내정보', '금고', '머니 이동', '보관함/메시지'].forEach(action => { %>
             <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded">
                 <%= action %>
             </button>
         <% }); %>
+        <button id="logoutButton" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded">
+            로그아웃
+        </button>
     </div>
 </div>
+
+<script>
+    document.getElementById('logoutButton').addEventListener('click', function() {
+        fetch('/logout', {
+            method: 'GET',
+            credentials: 'same-origin'
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = '/'; // Redirect to login page after successful logout
+            } else {
+                console.error('Logout failed');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
