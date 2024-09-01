@@ -131,7 +131,8 @@
                     // Open the game in a new window
                     var newWindow = window.open(data.url, 'SlotGame', "width=1400, height=930, left=100, right=100, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no");
                     if (!newWindow) {
-                        alert("Popup blocked! Please allow popups for this site.");
+                        window.location.href = data.url;
+                        // alert("Popup blocked! Please allow popups for this site.");
                     }
                 } else {
                     alert(data.msg);
