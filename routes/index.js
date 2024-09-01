@@ -1,15 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
+// Dummy game data
+const games = {
+  'TA001': 'https://game.emp555.com/TA001',
+  'XYZ123': 'https://example.com/games/XYZ123',
+  // Add more game codes and URLs as needed
+};
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   const games = [
-    { name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
-    { name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
-    { name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
-    { name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
-    { name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
-    { name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
+    { code: "TA001", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
+    { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
+    { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
+    { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
+    { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
+    { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
     // Add more games here
   ];
   const isLoggedIn = true;/* check if user is logged in */;
@@ -22,6 +29,23 @@ router.get('/', function(req, res, next) {
   } : {};
 
   res.render('main', { games, isLoggedIn, ...userData });
+});
+
+// Route to handle game start requests
+router.get('/game/start', (req, res) => {
+  const gamecode = req.query.gamecode;
+
+  if (games[gamecode]) {
+    res.json({
+      result: true,
+      url: games[gamecode]
+    });
+  } else {
+    res.json({
+      result: false,
+      msg: 'Invalid game code'
+    });
+  }
 });
 
 router.post('/login', function (req, res, next) {
