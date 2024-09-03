@@ -5,7 +5,7 @@ var router = express.Router();
 // Dummy game data
 const games = {
   'TA001': 'https://game.emp555.com/TA001',
-  'XYZ123': 'https://example.com/games/XYZ123',
+  'TA002': 'https://game.emp555.com/TA002',
   // Add more game codes and URLs as needed
 };
 
@@ -13,7 +13,7 @@ const games = {
 router.get('/', function(req, res, next) {
   const games = [
     { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
-    { code: "TA001", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
+    { code: "TA002", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
     { code: "TA001", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
     { code: "TA001", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
     // Add more games here
