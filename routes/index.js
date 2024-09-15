@@ -22,7 +22,6 @@ router.get('/', function(req, res, next) {
   ];
   const isLoggedIn = req.session.user;/* check if user is logged in */;
   const userData = req.session.user
-
   res.render('main', { games, isLoggedIn, ...userData });
 });
 
