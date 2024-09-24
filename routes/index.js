@@ -2,6 +2,9 @@ var express = require('express');
 const {executeQuery} = require("../config/database");
 var router = express.Router();
 
+const IP_ADDRESS = `178.128.17.145`;
+
+
 // Dummy game data
 const games = {
   'TA001': 'https://game.emp555.com/TA001',
@@ -11,14 +14,12 @@ const games = {
   // Add more game codes and URLs as needed
 };
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   const games = [
     { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
     { code: "TA002", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
     { code: "TA003", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
     { code: "TA004", name: 'OK LIVESPO', description: '실시간 스포츠 게임', image: 'https://cdn.usegalileo.ai/sdxl10/f33656df-b128-476f-97c9-1416c64d6fac.png' },
-    // Add more games here
   ];
   const isLoggedIn = req.session.user;/* check if user is logged in */;
   const userData = req.session.user
@@ -26,10 +27,12 @@ router.get('/', function(req, res, next) {
 });
 
 // Route to handle game start requests
-router.get('/game/start', (req, res) => {
-  const gamecode = req.query.gamecode;
+router.get('/game/init', async (req, res) => {
+  const userData = req.session.user;
+  const {id : userId} = userData;
+  const {gameCode} = req.query;
 
-  if(!req.session.user) {
+  if(!userData) {
     res.json({
       result: false,
       msg: 'Please login to play games.'
@@ -37,15 +40,29 @@ router.get('/game/start', (req, res) => {
     return;
   }
 
-  if (games[gamecode]) {
-    res.json({
-      result: true,
-      url: games[gamecode]
-    });
-  } else {
-    res.json({
+  try {
+    const url = `http://${IP_ADDRESS}:3010/integrator/games/init`;
+    const response = await axios.post(url, { gameCode, userId });
+
+    const { gameUrl } = response.data;
+
+    if (gameUrl) {
+      res.json({
+        result: true,
+        message: 'ok',
+        url: gameUrl
+      });
+    } else {
+      res.json({
+        result: false,
+        message: 'Invalid game code'
+      });
+    }
+  } catch (error) {
+    console.error('Error fetching game data:', error);
+    res.status(error.response?.status || 500).json({
       result: false,
-      msg: 'Invalid game code'
+      message: error.response?.data?.message || 'Internal server error'
     });
   }
 });
@@ -55,27 +72,22 @@ router.post('/login', async (req, res) => {
 
   const rows = await executeQuery(`SELECT * FROM user WHERE username = ? AND passwordHash = ?`, [username, password]);
   const isLoggedIn = rows.length > 0;
+
+  const {id, displayName, email} = rows[0];
+
   const userData = isLoggedIn ? {
-    username: '원숭이',
+    id,
+    username: displayName,
     cash: 1000000,
     gold: 50060055,
     silver: 10000,
     avatar_url: '/images/avatar/f_0.png' // Replace with actual avatar URL
   } : {};
 
-  if (isLoggedIn) {
-    req.session.user = {
-      username: '원숭이',
-      cash: 1000000,
-      gold: 50060055,
-      silver: 10000,
-      avatar_url: '/images/avatar/f_0.png' // Replace with actual avatar URL
-    };
-    res.redirect('/');
-  } else {
-    res.redirect('/');
-    // res.render('main', { error: 'Invalid credentials', isLoggedIn, ...userData });
-  }
+  req.session.user = userData;
+
+  // res.render('main', { error: 'Invalid credentials', isLoggedIn, ...userData });
+  res.redirect('/');
 });
 
 router.get('/logout', function(req, res) {

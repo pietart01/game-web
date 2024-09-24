@@ -39,7 +39,7 @@
                         ></path>
                     </svg>
                 </div>
-                <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]">BEST GAME</h2>
+                <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]"></h2>
             </div>
             <nav class="hidden sm:flex flex-1 justify-end gap-8">
                 <ul class="flex items-center gap-9">
@@ -78,7 +78,7 @@
         <div class="layout-content-container flex flex-col w-full px-4 sm:px-6 py-6">
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                 <% games.forEach(game => { %>
-                    <div class="flex flex-col gap-3 pb-3" onclick="gamestart('<%= game.code %>')">
+                    <div class="flex flex-col gap-3 pb-3" onclick="gameStart('<%= game.code %>')">
                         <div
                                 class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                                 style='background-image: url("<%= game.image %>");'
@@ -116,15 +116,15 @@
         });*/
     });
 
-    function gamestart(gamecode){
+    function gameStart(gamecode){
         $.ajax({
             type: "GET",
-            url: "/game/start",
+            url: "/game/init",
             dataType: "json",
             data: {
                 _method: 'get',
                 game: 'slot',
-                gamecode: gamecode
+                gameCode: gamecode
             },
             success: function(data){
                 if(data.result == true) {
@@ -135,7 +135,7 @@
                         // alert("Popup blocked! Please allow popups for this site.");
                     }
                 } else {
-                    alert(data.msg);
+                    alert(data.message);
                 }
             },
             error: function(){

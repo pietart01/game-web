@@ -37,3 +37,64 @@ var REEL_OFFSET_Y = CANVAS_HEIGHT/2;
 
 1~5 10, JJ, QQ, KK, AA
 1~5 EY, CT, SN, EY, NF
+
+
+
+A
+admin
+178.128.17.145
+
+Proxied
+
+Auto
+EditWhen toggled open, an additional table row will be added below this row to enable editing DNS records.
+
+
+A
+api
+178.128.17.145
+
+Proxied
+
+Auto
+EditWhen toggled open, an additional table row will be added below this row to enable editing DNS records.
+
+
+A
+biz
+178.128.17.145
+
+Proxied
+
+Auto
+EditWhen toggled open, an additional table row will be added below this row to enable editing DNS records.
+
+
+A
+emp555.com
+178.128.17.145
+
+Proxied
+
+Auto
+EditWhen toggled open, an additional table row will be added below this row to enable editing DNS records.
+
+
+A
+game
+178.128.17.145
+
+Proxied
+
+Auto
+EditWhen toggled open, an additional table row will be added below this row to enable editing DNS records.
+
+
+A
+www
+178.128.17.145
+
+Proxied
+
+Auto
+EditWhen toggled open, an additional table row will be added below this row to enable editing DNS records.
