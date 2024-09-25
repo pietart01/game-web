@@ -4,7 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config({path: '../.env'});
+// dotenv.config();
 var session = require('express-session');
 
 

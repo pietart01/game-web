@@ -1,6 +1,7 @@
 var express = require('express');
 const {executeQuery} = require("../config/database");
 var router = express.Router();
+const axios = require('axios');
 
 const IP_ADDRESS = `178.128.17.145`;
 
@@ -35,7 +36,9 @@ router.get('/game/init', async (req, res) => {
     const url = `http://${IP_ADDRESS}:3010/integrator/games/init`;
     const response = await axios.post(url, { gameCode, userId });
 
-    const { gameUrl } = response.data;
+    const { data } = response.data;
+    const { gameUrl } = data;
+    console.log('gameUrl:', gameUrl);
 
     if (gameUrl) {
       res.json({
