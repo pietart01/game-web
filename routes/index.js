@@ -5,15 +5,6 @@ var router = express.Router();
 const IP_ADDRESS = `178.128.17.145`;
 
 
-// Dummy game data
-const games = {
-  'TA001': 'https://game.emp555.com/TA001',
-  'TA002': 'https://game.emp555.com/TA002',
-  'TA003': 'https://game.emp555.com/TA003',
-  'TA004': 'https://game.emp555.com/TA004',
-  // Add more game codes and URLs as needed
-};
-
 router.get('/', function(req, res, next) {
   const games = [
     { code: "TA001", name: "OK HOLD'EM", description: '화끈한 쇼핸드 게임', image: 'https://cdn.usegalileo.ai/sdxl10/ecfa739b-0e1b-4a64-a492-2dccf05b4a96.png' },
