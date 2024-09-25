@@ -12,7 +12,7 @@ const connectionPool = database.createPool({
     port: process.env.MYSQL_PORT,
     timezone: '+09:00',
     charset: 'utf8mb4',
-    multipleStatements: false,
+    multipleStatements: true,
     waitForConnections: true,
     connectionLimit: 5,
     queueLimit: 50,
