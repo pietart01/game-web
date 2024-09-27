@@ -306,13 +306,13 @@
         }
 
         nav {
-            background-image: linear-gradient(to right, #a78bfa, #ec4899);
+            background-color: white;
             padding: 1rem 0;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .nav-links a {
-            color: white;
+            color: #4a5568; /* Dark gray color for better contrast */
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
@@ -320,9 +320,8 @@
         }
 
         .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.05);
         }
-
 
         @media (max-width: 768px) {
             .nav-links {
@@ -340,12 +339,12 @@
         <nav>
             <div class="container mx-auto flex flex-wrap justify-between items-center">
                 <div class="flex items-center w-full md:w-auto justify-between">
-                    <button id="menu-toggle" class="text-white md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 md:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
-                    <div class="text-white text-2xl font-bold md:hidden">Logo</div>
+                    <div class="text-gray-800 text-2xl font-bold md:hidden">Logo</div>
                 </div>
                 <ul id="nav-links" class="nav-links w-full md:w-auto md:flex md:space-x-6 mt-4 md:mt-0">
                     <li><a href="#">SlotGames</a></li>
@@ -355,7 +354,7 @@
                     <li><a href="#">Items</a></li>
                     <li><a href="#">Logout</a></li>
                 </ul>
-                <div class="text-white text-2xl font-bold hidden md:block">Logo</div>
+                <div class="text-gray-800 text-2xl font-bold hidden md:block">Logo</div>
             </div>
         </nav>
 
@@ -384,7 +383,7 @@
 
         <div class="layout-content-container">
             <section class="category-section">
-                <h2 class="category-header">슬롯게임</h2>
+                <h2 class="category-header">Slot Games</h2>
                 <div class="game-grid">
                     <% const slotGames = [
                         {code: 'TA001', name: '프루티 슬롯', description: '과일 테마의 클래식 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
@@ -406,7 +405,7 @@
             </section>
 
             <section class="category-section">
-                <h2 class="category-header">카드게임</h2>
+                <h2 class="category-header">Card Games</h2>
                 <div class="game-grid">
                     <% const cardGames = [
                         {code: 'blackjack', name: '블랙잭', description: '클래식 21점 게임', image: 'https://example.com/blackjack.jpg'},
