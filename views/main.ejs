@@ -353,11 +353,11 @@
                 <h2 class="category-header">슬롯게임</h2>
                 <div class="game-grid">
                     <% const slotGames = [
-                        {code: 'fruity', name: '프루티 슬롯', description: '과일 테마의 클래식 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'jewel', name: '보석 마니아', description: '반짝이는 보석 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'dragon', name: '드래곤 스핀', description: '동양 테마 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'starburst', name: '스타버스트', description: '우주 테마 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'pirate', name: '해적의 보물', description: '해적 모험 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'TA001', name: '프루티 슬롯', description: '과일 테마의 클래식 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'TA002', name: '보석 마니아', description: '반짝이는 보석 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'TA003', name: '드래곤 스핀', description: '동양 테마 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'TA004', name: '스타버스트', description: '우주 테마 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'TA005', name: '해적의 보물', description: '해적 모험 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
                     ]; %>
                     <% slotGames.forEach(game => { %>
                         <div class="game-card" onclick="gameStart('<%= game.code %>')">
