@@ -5,17 +5,39 @@ const axios = require('axios');
 
 const IP_ADDRESS = `178.128.17.145`;
 
-
 async function getGameInfoList() {
   const games = await executeQuery('SELECT * FROM gameInfo', []);
   console.log('games:', games);
   return games;
 }
 
+async function getUser(userId) {
+  const user = await executeQuery('SELECT * FROM user where id = ?', [userId]);
+  if(user.length > 0) {
+    return user[0];
+  }
+  return null;
+}
+
+
 router.get('/', async function(req, res, next) {
   const games = await getGameInfoList();
-  const isLoggedIn = req.session.user;/* check if user is logged in */;
-  const userData = req.session.user
+  const isLoggedIn = req.session.user;
+  let userData = {};
+
+  if(isLoggedIn) {
+    userData = req.session.user;
+
+    const {id: userId} = userData;
+    console.log('userId:', userId);
+    const user = await getUser(userId);
+    const {balance} = user;
+    console.log('balance:', balance);
+
+    userData.cash = balance;
+    userData.username = user.displayName;
+  }
+
   res.render('main', { games, isLoggedIn, ...userData });
 });
 
@@ -68,14 +90,14 @@ router.post('/login', async (req, res) => {
   const rows = await executeQuery(`SELECT * FROM user WHERE username = ? AND passwordHash = ?`, [username, password]);
   const isLoggedIn = rows.length > 0;
 
-  const {id, displayName, email} = rows[0];
+  const {id, displayName, email, balance} = rows[0];
 
   const userData = isLoggedIn ? {
     id,
     username: displayName,
-    cash: 1000000,
-    gold: 50060055,
-    silver: 10000,
+    cash: balance,
+    gold: 0,
+    silver: 0,
     avatar_url: '/images/avatar/f_0.png' // Replace with actual avatar URL
   } : {};
 

@@ -18,6 +18,7 @@
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
             --primary-color: #6a11cb;
@@ -220,9 +221,9 @@
         }
 
         .layout-content-container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: var(--spacing-lg) var(--spacing-md);
+            padding: var(--spacing-lg) 2rem;
         }
 
         .category-section {
@@ -237,10 +238,17 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-sm);
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
         }
 
         @media (min-width: 640px) {
@@ -258,6 +266,12 @@
         @media (min-width: 1024px) {
             .game-grid {
                 grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container, .layout-content-container {
+                padding: 0 1rem;
             }
         }
 
@@ -291,38 +305,59 @@
             line-height: normal;
         }
 
+        nav {
+            background-image: linear-gradient(to right, #a78bfa, #ec4899);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
 
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-links.active {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-4 sm:px-10 py-3">
-            <div class="flex items-center gap-4 text-[#1C160C]">
-                <div class="size-4">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
-                                fill="currentColor"
-                        ></path>
-                    </svg>
+        <nav>
+            <div class="container mx-auto flex flex-wrap justify-between items-center">
+                <div class="flex items-center w-full md:w-auto justify-between">
+                    <button id="menu-toggle" class="text-white md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <div class="text-white text-2xl font-bold md:hidden">Logo</div>
                 </div>
-                <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]"></h2>
-            </div>
-            <nav class="hidden sm:flex flex-1 justify-end gap-8">
-                <ul class="flex items-center gap-9">
-                    <% ['홈'].forEach(item => { %>
-                        <li><a class="text-[#1C160C] text-sm font-medium leading-normal" href="#<%= item %>"><%= item %></a></li>
-                    <% }); %>
+                <ul id="nav-links" class="nav-links w-full md:w-auto md:flex md:space-x-6 mt-4 md:mt-0">
+                    <li><a href="#">SlotGames</a></li>
+                    <li><a href="#">CardGames</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">MyPage</a></li>
+                    <li><a href="#">Items</a></li>
+                    <li><a href="#">Logout</a></li>
                 </ul>
-            </nav>
-            <button class="sm:hidden text-[#1C160C]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </header>
+                <div class="text-white text-2xl font-bold hidden md:block">Logo</div>
+            </div>
+        </nav>
 
         <div class="carousel-container">
             <div class="swiper mySwiper">
@@ -346,7 +381,6 @@
                 <% } %>
             </div>
         </div>
-
 
         <div class="layout-content-container">
             <section class="category-section">
@@ -397,25 +431,10 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-/*        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            fetch('/login', {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        window.location.href = '/dashboard';
-                    } else {
-                        alert('Login failed. Please check your credentials.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });*/
+    });
+
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
     });
 
     function gameStart(gamecode){

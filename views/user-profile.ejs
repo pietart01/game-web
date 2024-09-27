@@ -1,53 +1,53 @@
 <!-- user-profile.ejs -->
-<div class="user-profile-container w-full max-w-[360px] bg-white bg-opacity-90 rounded-xl p-6">
+<div class="login-form-container" style="background: var(--form-background); max-height: 100%; overflow-y: auto;">
     <div class="flex items-center mb-4">
-        <img src="<%= avatar_url %>" alt="User Avatar" class="w-16 h-16 rounded-full mr-4">
+        <img src="<%= avatar_url %>" alt="User Avatar" class="w-12 h-12 rounded-full mr-3 border-2 border-primary">
         <div>
-            <h2 class="text-xl font-bold"><%= username %></h2>
-            <p class="text-sm text-gray-600">Welcome to OKGame</p>
+            <h2 class="text-lg font-bold" style="color: var(--primary-color);"><%= username %></h2>
+            <p class="text-xs" style="color: var(--placeholder-color);">Welcome back!</p>
         </div>
     </div>
 
     <div class="grid grid-cols-2 gap-2 mb-4">
-        <div class="flex justify-between items-center bg-gray-100 p-2 rounded">
-            <span class="font-semibold">캐시:</span>
-            <span><%= cash.toLocaleString() %></span>
+        <div class="flex flex-col p-2 rounded-md" style="background: var(--secondary-gradient);">
+            <span class="text-xs font-medium" style="color: var(--primary-color);">캐시</span>
+            <span class="text-sm font-semibold" style="color: var(--text-color);"><%= cash.toLocaleString() %></span>
         </div>
-        <div class="flex justify-between items-center bg-gray-100 p-2 rounded">
-            <span class="font-semibold">실버:</span>
-            <span><%= silver.toLocaleString() %></span>
+        <div class="flex flex-col p-2 rounded-md" style="background: var(--secondary-gradient);">
+            <span class="text-xs font-medium" style="color: var(--primary-color);">실버</span>
+            <span class="text-sm font-semibold" style="color: var(--text-color);"><%= silver.toLocaleString() %></span>
         </div>
-        <div class="flex justify-between items-center bg-gray-100 p-2 rounded col-span-2">
-            <span class="font-semibold">골드:</span>
-            <span><%= gold.toLocaleString() %></span>
+        <div class="flex flex-col p-2 rounded-md col-span-2" style="background: var(--secondary-gradient);">
+            <span class="text-xs font-medium" style="color: var(--primary-color);">골드</span>
+            <span class="text-sm font-semibold" style="color: var(--text-color);"><%= gold.toLocaleString() %></span>
         </div>
     </div>
 
     <div class="grid grid-cols-2 gap-2">
-        <% ['내정보', '금고', '머니 이동', '보관함/메시지'].forEach(action => { %>
-            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded">
+        <% ['내정보', '금고'].forEach(action => { %>
+            <button class="btn btn-secondary text-xs py-2" style="background-image: var(--secondary-gradient); color: var(--primary-color);">
                 <%= action %>
             </button>
         <% }); %>
-        <button id="logoutButton" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded">
+        <button id="logoutButton" class="btn btn-primary col-span-2 text-sm py-2" style="background-image: var(--primary-gradient); color: white;">
             로그아웃
         </button>
     </div>
 </div>
 
 <script>
-    document.getElementById('logoutButton').addEventListener('click', function() {
-        fetch('/logout', {
-            method: 'GET',
-            credentials: 'same-origin'
-        }).then(response => {
-            if (response.ok) {
-                window.location.href = '/'; // Redirect to login page after successful logout
-            } else {
-                console.error('Logout failed');
-            }
-        }).catch(error => {
-            console.error('Error:', error);
-        });
+  document.getElementById('logoutButton').addEventListener('click', function() {
+    fetch('/logout', {
+      method: 'GET',
+      credentials: 'same-origin'
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = '/'; // Redirect to login page after successful logout
+      } else {
+        console.error('Logout failed');
+      }
+    }).catch(error => {
+      console.error('Error:', error);
     });
+  });
 </script>
