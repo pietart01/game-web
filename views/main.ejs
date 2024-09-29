@@ -47,6 +47,9 @@
             --input-height: 48px;
             --button-height: 48px;
 
+            --spacing-xl: 32px;
+            --font-size-xl: 24px;
+
             /* Additional variables for game layout */
             --game-title-color: #1C160C;
             --game-description-color: #A18249;
@@ -221,13 +224,12 @@
         }
 
         .layout-content-container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: var(--spacing-lg) 2rem;
+            max-width: 100%;
+            padding: var(--spacing-lg) var(--spacing-md);
         }
 
         .category-section {
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
         }
 
         .category-header {
@@ -247,45 +249,49 @@
 
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: var(--spacing-md);
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            padding: 0 var(--spacing-md);
         }
 
         @media (min-width: 640px) {
             .game-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .game-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (min-width: 1024px) {
             .game-grid {
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
-        @media (max-width: 768px) {
-            .container, .layout-content-container {
-                padding: 0 1rem;
+        @media (min-width: 1440px) {
+            .game-grid {
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
         .game-card {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-sm);
-            padding-bottom: var(--spacing-sm);
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: var(--border-radius-lg);
+            background-color: var(--form-background);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
 
         .game-image {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 16 / 9;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -293,16 +299,19 @@
         }
 
         .game-title {
-            font-size: var(--font-size-md);
-            font-weight: 500;
-            line-height: normal;
+            font-size: var(--font-size-xl, 24px);
+            font-weight: 700;
+            line-height: 1.2;
             color: var(--game-title-color);
+            text-align: center;
+            margin-top: var(--spacing-sm);
         }
 
         .game-description {
-            font-size: var(--font-size-sm);
+            font-size: var(--font-size-md);
             color: var(--game-description-color);
-            line-height: normal;
+            line-height: 1.4;
+            text-align: center;
         }
 
         nav {
@@ -336,7 +345,7 @@
 <body>
 <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
     <div class="layout-container flex h-full grow flex-col">
-        <nav>
+        <!--<nav>
             <div class="container mx-auto flex flex-wrap justify-between items-center">
                 <div class="flex items-center w-full md:w-auto justify-between">
                     <button id="menu-toggle" class="text-gray-800 md:hidden">
@@ -344,26 +353,29 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
-                    <div class="text-gray-800 text-2xl font-bold md:hidden">Logo</div>
+                    <div class="text-gray-800 text-2xl font-bold md:hidden"></div>
                 </div>
                 <ul id="nav-links" class="nav-links w-full md:w-auto md:flex md:space-x-6 mt-4 md:mt-0">
+&lt;!&ndash;
                     <li><a href="#">SlotGames</a></li>
                     <li><a href="#">CardGames</a></li>
                     <li><a href="#">History</a></li>
                     <li><a href="#">MyPage</a></li>
                     <li><a href="#">Items</a></li>
                     <li><a href="#">Logout</a></li>
+&ndash;&gt;
                 </ul>
-                <div class="text-gray-800 text-2xl font-bold hidden md:block">Logo</div>
+                &lt;!&ndash;                LOGO&ndash;&gt;
+                <div class="text-gray-800 text-2xl font-bold hidden md:block"></div>
             </div>
-        </nav>
+        </nav>-->
 
         <div class="carousel-container">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image: url('https://cdn.usegalileo.ai/sdxl10/c13c5aae-a5ad-45cc-a44b-2a965de4047d.png');"></div>
-                    <div class="swiper-slide" style="background-image: url('https://picsum.photos/1200/800?random=1');"></div>
-                    <div class="swiper-slide" style="background-image: url('https://picsum.photos/1200/800?random=2');"></div>
+                    <div class="swiper-slide" style="background-image: url('/images/slide.png');"></div>
+                    <div class="swiper-slide" style="background-image: url('/images/slide2.png');"></div>
+<!--                    <div class="swiper-slide" style="background-image: url('https://picsum.photos/1200/800?random=2');"></div>-->
                 </div>
             </div>
             <div class="banner-content">
@@ -383,21 +395,17 @@
 
         <div class="layout-content-container">
             <section class="category-section">
-                <h2 class="category-header">Slot Games</h2>
+                <h2 class="category-header">Slot</h2>
                 <div class="game-grid">
                     <% const slotGames = [
-                        {code: 'TA001', name: '프루티 슬롯', description: '과일 테마의 클래식 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'TA002', name: '보석 마니아', description: '반짝이는 보석 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'TA003', name: '드래곤 스핀', description: '동양 테마 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'TA004', name: '스타버스트', description: '우주 테마 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-                        {code: 'TA005', name: '해적의 보물', description: '해적 모험 슬롯', image: 'https://images.unsplash.com/photo-1511213966740-24d719a0a814?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'TA001', name: 'Game #1', description: '과일 테마의 클래식 슬롯', image: 'https://images.unsplash.com/photo-1539768942893-daf53e448371?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
                     ]; %>
                     <% slotGames.forEach(game => { %>
-                        <div class="game-card" onclick="gameStart('<%= game.code %>')">
+                        <div class="game-card" onclick="checkLoginAndStartGame('<%= game.code %>')">
                             <div class="game-image" style="background-image: url('<%= game.image %>');"></div>
                             <div>
                                 <p class="game-title"><%= game.name %></p>
-                                <p class="game-description"><%= game.description %></p>
+                                <!--<p class="game-description"><%= game.description %></p>-->
                             </div>
                         </div>
                     <% }); %>
@@ -405,21 +413,17 @@
             </section>
 
             <section class="category-section">
-                <h2 class="category-header">Card Games</h2>
+                <h2 class="category-header">Card</h2>
                 <div class="game-grid">
                     <% const cardGames = [
-                        {code: 'blackjack', name: '블랙잭', description: '클래식 21점 게임', image: 'https://example.com/blackjack.jpg'},
-                        {code: 'poker', name: '포커', description: '텍사스 홀덤 포커', image: 'https://example.com/poker.jpg'},
-                        {code: 'baccarat', name: '바카라', description: '플레이어 vs 뱅커', image: 'https://example.com/baccarat.jpg'},
-                        {code: 'three-card', name: '영국 포커', description: '3장 카드 포커', image: 'https://example.com/three-card-poker.jpg'},
-                        {code: 'caribbean', name: '카리비안 스터드', description: '캐리비안 스타일 포커', image: 'https://example.com/caribbean-stud.jpg'},
+                        {code: 'poker', name: 'Texas Holdem', description: '텍사스 홀덤 포커', image: 'https://images.unsplash.com/photo-1626775238053-4315516eedc9?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
                     ]; %>
                     <% cardGames.forEach(game => { %>
                         <div class="game-card" onclick="gameStart('<%= game.code %>')">
                             <div class="game-image" style="background-image: url('<%= game.image %>');"></div>
                             <div>
                                 <p class="game-title"><%= game.name %></p>
-                                <p class="game-description"><%= game.description %></p>
+<!--                                <p class="game-description"><%= game.description %></p>-->
                             </div>
                         </div>
                     <% }); %>
@@ -464,6 +468,24 @@
                 alert("실패했습니다.");
             }
         });
+    }
+
+    function checkLoginAndStartGame(gameCode) {
+        <% if (typeof user !== 'undefined' && user.id) { %>
+      // User is logged in, start the game
+      gameStart(gameCode);
+        <% } else { %>
+      // User is not logged in, show alert
+      alert('Please log in to play this game.');
+      // Optionally, redirect to login page
+      // window.location.href = '/login';
+        <% } %>
+    }
+
+    function gameStart(gameCode) {
+      // Your existing gameStart function logic here
+      console.log('Starting game:', gameCode);
+      // Add your game start logic
     }
 </script>
 <script>
