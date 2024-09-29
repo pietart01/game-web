@@ -89,24 +89,31 @@ router.get('/game/init', async (req, res) => {
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
-  const rows = await executeQuery(`SELECT * FROM user WHERE username = ? AND passwordHash = ?`, [username, password]);
-  const isLoggedIn = rows.length > 0;
 
-  const {id, displayName, email, balance} = rows[0];
+  try {
+    const rows = await executeQuery(`SELECT * FROM user WHERE username = ? AND passwordHash = ?`, [username, password]);
+    const isLoggedIn = rows.length > 0;
 
-  const userData = isLoggedIn ? {
-    id,
-    username: displayName,
-    cash: balance,
-    gold: 0,
-    silver: 0,
-    avatar_url: '/images/avatar/f_0.png' // Replace with actual avatar URL
-  } : {};
+    if(isLoggedIn) {
+      const {id, displayName, email, balance} = rows[0];
 
-  req.session.user = userData;
+      const userData = isLoggedIn ? {
+        id,
+        username: displayName,
+        cash: balance,
+        gold: 0,
+        silver: 0,
+        avatar_url: '/images/avatar/f_0.png' // Replace with actual avatar URL
+      } : {};
 
-  // res.render('main', { error: 'Invalid credentials', isLoggedIn, ...userData });
-  res.redirect('/');
+      req.session.user = userData;
+    }
+  } catch (e) {
+    console.error('Error:', e);
+  } finally {
+    res.redirect('/');
+  }
+
 });
 
 router.get('/logout', function(req, res) {
