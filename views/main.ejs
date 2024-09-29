@@ -473,15 +473,7 @@
     }
 
     function checkLoginAndStartGame(gameCode) {
-        <% if (typeof user !== 'undefined' && user.id) { %>
-      // User is logged in, start the game
       gameStart(gameCode);
-        <% } else { %>
-      // User is not logged in, show alert
-      alert('Please log in to play this game.');
-      // Optionally, redirect to login page
-      // window.location.href = '/login';
-        <% } %>
     }
 </script>
 <script>
