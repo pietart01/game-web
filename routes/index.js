@@ -47,6 +47,8 @@ router.get('/game/init', async (req, res) => {
   const {id : userId} = userData;
   const {gameCode} = req.query;
 
+  console.log('userData', userData);
+
   if(!userData) {
     res.json({
       result: false,

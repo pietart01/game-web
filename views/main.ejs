@@ -436,9 +436,11 @@
     document.addEventListener('DOMContentLoaded', function() {
     });
 
+/*
     document.getElementById('menu-toggle').addEventListener('click', function() {
       document.getElementById('nav-links').classList.toggle('active');
     });
+*/
 
     function gameStart(gamecode){
         $.ajax({
@@ -471,21 +473,17 @@
     }
 
     function checkLoginAndStartGame(gameCode) {
-        <% if (typeof user !== 'undefined' && user.id) { %>
+      <!--        <% if (typeof user !== 'undefined' && user.id) { %>-->
       // User is logged in, start the game
-      gameStart(gameCode);
+      // gameStart(gameCode);
         <% } else { %>
+      gameStart(gameCode);
+
       // User is not logged in, show alert
-      alert('Please log in to play this game.');
+      // alert('Please log in to play this game.');
       // Optionally, redirect to login page
       // window.location.href = '/login';
         <% } %>
-    }
-
-    function gameStart(gameCode) {
-      // Your existing gameStart function logic here
-      console.log('Starting game:', gameCode);
-      // Add your game start logic
     }
 </script>
 <script>
