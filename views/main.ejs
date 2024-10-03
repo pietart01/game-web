@@ -275,8 +275,8 @@
         .game-card {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-md);
-            padding: var(--spacing-md);
+            /*gap: var(--spacing-md);*/
+            /*padding: var(--spacing-md);*/
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: var(--border-radius-lg);
@@ -299,12 +299,12 @@
         }
 
         .game-title {
-            font-size: var(--font-size-xl, 24px);
-            font-weight: 700;
+            font-size: var(--font-size-xl, 15px);
+            font-weight: 600;
             line-height: 1.2;
             color: var(--game-title-color);
             text-align: center;
-            margin-top: var(--spacing-sm);
+            /*margin-top: var(--spacing-sm);*/
         }
 
         .game-description {
@@ -398,13 +398,13 @@
                 <h2 class="category-header">Slot</h2>
                 <div class="game-grid">
                     <% const slotGames = [
-                        {code: 'TA001', name: 'Game #1', description: '과일 테마의 클래식 슬롯', image: 'https://images.unsplash.com/photo-1539768942893-daf53e448371?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'TA001', name: 'Game #1', description: 'Game #1', image: '/images/TA001.png'},
                     ]; %>
                     <% slotGames.forEach(game => { %>
                         <div class="game-card" onclick="checkLoginAndStartGame('<%= game.code %>')">
                             <div class="game-image" style="background-image: url('<%= game.image %>');"></div>
                             <div>
-                                <p class="game-title"><%= game.name %></p>
+<!--                                <p class="game-title"><%= game.name %></p>-->
                                 <!--<p class="game-description"><%= game.description %></p>-->
                             </div>
                         </div>
