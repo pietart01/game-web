@@ -457,11 +457,11 @@
                   const decodedUrl = decodeURIComponent(data.url);
                   console.log('url = ', decodedUrl);
                     // Open the game in a new window
-                    var newWindow = window.open(decodedUrl, 'SlotGame', "width=1400, height=930, left=100, right=100, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no");
-                    if (!newWindow) {
-                        window.location.href = decodedUrl;
-                        // alert("Popup blocked! Please allow popups for this site.");
-                    }
+                  var newWindow = window.open(decodedUrl, 'SlotGame', "width=1400, height=910, left=100, top=100, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no");
+                  if (!newWindow) {
+                    window.location.href = decodedUrl;
+                    // alert("Popup blocked! Please allow popups for this site.");
+                  }
                 } else {
                     alert(data.message);
                 }
