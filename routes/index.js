@@ -3,7 +3,7 @@ const {executeQuery} = require("../config/database");
 var router = express.Router();
 const axios = require('axios');
 
-const IP_ADDRESS = `178.128.17.145`;
+const IP_ADDRESS = `api`;
 
 async function getGameInfoList() {
   const games = await executeQuery('SELECT * FROM gameInfo', []);
