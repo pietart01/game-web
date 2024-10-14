@@ -78,7 +78,7 @@ router.get('/game/init', async (req, res) => {
       });
     }
   } catch (error) {
-    console.error('Error fetching game data:', error);
+    console.error('Error fetching game data:', error.response?.status, error.response?.message);
     res.status(error.response?.status || 500).json({
       result: false,
       message: error.response?.data?.message || 'Internal server error'
