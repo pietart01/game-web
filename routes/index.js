@@ -3,11 +3,12 @@ const {executeQuery} = require("../config/database");
 var router = express.Router();
 const axios = require('axios');
 
-const IP_ADDRESS = `api`;
+// const IP_ADDRESS = `api`;
+console.log(`process.env.API_URL: ${process.env.API_URL}`);
 
 async function getGameInfoList() {
   const games = await executeQuery('SELECT * FROM gameInfo', []);
-  console.log('games:', games);
+  // console.log('games:', games);
   return games;
 }
 
@@ -34,7 +35,7 @@ router.get('/', async function(req, res, next) {
     const {balance} = user;
     console.log('balance:', balance);
 
-    userData.cash = balance;
+    userData.cash = 0;
     userData.username = user.displayName;
   }
 
@@ -43,22 +44,22 @@ router.get('/', async function(req, res, next) {
 
 // Route to handle game start requests
 router.get('/game/init', async (req, res) => {
-  const userData = req.session.user;
-  const {id : userId} = userData;
-  const {gameCode} = req.query;
-
-  console.log('userData', userData);
-
-  if(!userData) {
-    res.json({
-      result: false,
-      msg: 'Please login to play games.'
-    });
-    return;
-  }
-
   try {
-    const url = `http://${IP_ADDRESS}:3010/integrator/games/init`;
+    const userData = req.session.user;
+    const {id : userId} = userData;
+    const {gameCode} = req.query;
+
+    console.log('userData', userData);
+
+    if(!userData) {
+      res.json({
+        result: false,
+        msg: 'Please login to play games.'
+      });
+      return;
+    }
+
+    const url = `${process.env.API_URL}/integrator/games/init`;
     const response = await axios.post(url, { gameCode, userId });
 
     const { data } = response.data;
@@ -95,16 +96,19 @@ router.post('/login', async (req, res) => {
     const isLoggedIn = rows.length > 0;
 
     if(isLoggedIn) {
-      const {id, displayName, email, balance} = rows[0];
+      const {id, displayName, email, balance, silver} = rows[0];
+
 
       const userData = isLoggedIn ? {
         id,
         username: displayName,
-        cash: balance,
-        gold: 0,
-        silver: 0,
-        avatar_url: '/images/avatar/f_0.png' // Replace with actual avatar URL
+        cash: 0,
+        gold: balance,
+        silver: silver,
+        avatar_url: '/images/avatar/am_1.jpg' // Replace with actual avatar URL
       } : {};
+
+      console.log(`userData: ${JSON.stringify(userData)}`)
 
       req.session.user = userData;
     }

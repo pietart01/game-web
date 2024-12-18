@@ -80,6 +80,7 @@
         .swiper-slide {
             background-position: center;
             background-size: cover;
+            filter: brightness(200%);
         }
         .banner-content {
             position: absolute;
@@ -374,7 +375,7 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" style="background-image: url('/images/slide.png');"></div>
-                    <div class="swiper-slide" style="background-image: url('/images/slide2.png');"></div>
+<!--                    <div class="swiper-slide" style="background-image: url('/images/slide2.png');"></div>-->
 <!--                    <div class="swiper-slide" style="background-image: url('https://picsum.photos/1200/800?random=2');"></div>-->
                 </div>
             </div>
@@ -414,10 +415,10 @@
             </section>
 
             <section class="category-section">
-                <h2 class="category-header">Card</h2>
+                <h2 class="category-header">Poker</h2>
                 <div class="game-grid">
                     <% const cardGames = [
-                        {code: 'CA001', name: 'Texas Holdem', description: '텍사스 홀덤 포커', image: 'https://images.unsplash.com/photo-1626775238053-4315516eedc9?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
+                        {code: 'CA001', name: '', description: '텍사스 홀덤 포커', image: 'https://images.unsplash.com/photo-1626775238053-4315516eedc9?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
                     ]; %>
                     <% cardGames.forEach(game => { %>
                         <div class="game-card" onclick="gameStart('<%= game.code %>')">
