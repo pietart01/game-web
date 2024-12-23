@@ -10,31 +10,36 @@
 <body>
 
 <div class="layout-content-container">
-    <h1>Avatar Shop</h1>
+    <div class="shop-header">
+        <h1>Avatar Shop</h1>
+        <p>Customize your appearance with unique character avatars</p>
+    </div>
 
     <!-- If avatars exist, show them -->
     <% if (avatars && avatars.length > 0) { %>
         <div class="avatar-shop-grid">
             <% avatars.forEach((avatar, index) => { %>
                 <div class="avatar-card <%= index >= 5 ? 'hidden' : '' %>">
+                    <span class="rarity-badge rarity-<%= avatar.rarity || 'common' %>">
+                        <%= avatar.rarity || 'Common' %>
+                    </span>
                     <img src="<%= avatar.image %>" alt="<%= avatar.title %>" />
                     <h2><%= avatar.title %></h2>
                     <p class="avatar-desc"><%= avatar.description %></p>
-                    <p class="avatar-price"><%= avatar.price %> 원</p>
-                    <button class="btn btn-primary">Buy</button>
+                    <p class="avatar-price"><%= avatar.price %></p>
+                    <button class="btn">Purchase Avatar</button>
                 </div>
             <% }) %>
         </div>
 
         <!-- Show More Button (only if we have more than 5 avatars) -->
         <% if (avatars.length > 5) { %>
-            <button class="btn btn-primary" id="showMoreBtn">Show More</button>
+            <button class="btn" id="showMoreBtn">Show More Avatars</button>
         <% } %>
 
     <% } else { %>
-        <p>No avatars available.</p>
+        <p>No avatars available at the moment. Check back soon!</p>
     <% } %>
-
 </div>
 
 <script>
@@ -42,12 +47,21 @@
         const showMoreBtn = document.getElementById('showMoreBtn');
         if (showMoreBtn) {
             showMoreBtn.addEventListener('click', function() {
-                // Find all avatars currently hidden and reveal them
                 const hiddenAvatars = document.querySelectorAll('.avatar-card.hidden');
-                hiddenAvatars.forEach(card => card.classList.remove('hidden'));
+                hiddenAvatars.forEach(card => {
+                    card.classList.remove('hidden');
+                    // Add a fade-in animation
+                    card.style.animation = 'fadeIn 0.5s ease-out forwards';
+                });
 
-                // Remove the button after clicking
-                showMoreBtn.remove();
+                // Smooth scroll to the first newly revealed avatar
+                if (hiddenAvatars.length > 0) {
+                    hiddenAvatars[0].scrollIntoView({ behavior: 'smooth' });
+                }
+
+                // Remove the button with a fade-out animation
+                showMoreBtn.style.opacity = '0';
+                setTimeout(() => showMoreBtn.remove(), 300);
             });
         }
     });

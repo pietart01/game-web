@@ -132,54 +132,7 @@ router.get('/logout', function(req, res) {
 
 // routes/index.js
 router.get('/avatar-shop', async (req, res) => {
-  // Example data. In a real app, fetch from DB, e.g.:
-  // const avatars = await executeQuery('SELECT * FROM avatars', []);
-  const avatars = [
-    {
-      id: 1,
-      title: 'Avatar Name 1',
-      description: 'A short description for Avatar 1.',
-      price: 1000,
-      image: '/images/avatar/am_1.jpg',
-    },
-    {
-      id: 2,
-      title: 'Avatar Name 2',
-      description: 'A short description for Avatar 2.',
-      price: 1500,
-      image: '/images/avatar/am_2.jpg',
-    },
-    {
-      id: 3,
-      title: 'Avatar Name 3',
-      description: 'A short description for Avatar 3.',
-      price: 2000,
-      image: '/images/avatar/am_3.jpg',
-    },
-    {
-      id: 4,
-      title: 'Avatar Name 4',
-      description: 'A short description for Avatar 4.',
-      price: 2500,
-      image: '/images/avatar/am_4.jpg',
-    },
-    {
-      id: 5,
-      title: 'Avatar Name 5',
-      description: 'A short description for Avatar 5.',
-      price: 3000,
-      image: '/images/avatar/am_5.jpg',
-    },
-    {
-      id: 6,
-      title: 'Avatar Name 6',
-      description: 'A short description for Avatar 6.',
-      price: 3500,
-      image: '/images/avatar/am_6.jpg',
-    },
-    // Add more items if you like...
-  ];
-
+  const avatars = await executeQuery(`SELECT *  FROM avatar`, []);
   console.log('avatars:', avatars);
 
   res.render('avatarShop', { avatars });
