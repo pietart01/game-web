@@ -92,6 +92,8 @@ router.post('/login', async (req, res) => {
     const rows = await executeQuery(`SELECT * FROM user WHERE username = ? AND passwordHash = ?`, [username, password]);
     const isLoggedIn = rows.length > 0;
 
+    console.log(`rows: ${JSON.stringify(rows)}`)
+
     if(isLoggedIn) {
       const {id, displayName, email, balance, silver} = rows[0];
 
