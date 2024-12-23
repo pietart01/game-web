@@ -1,0 +1,57 @@
+<!-- views/avatarShop.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Avatar Shop</title>
+    <link rel="stylesheet" href="/style.css" />
+    <!-- Make sure you have a .hidden CSS class defined to hide items initially -->
+</head>
+<body>
+
+<div class="layout-content-container">
+    <h1>Avatar Shop</h1>
+
+    <!-- If avatars exist, show them -->
+    <% if (avatars && avatars.length > 0) { %>
+        <div class="avatar-shop-grid">
+            <% avatars.forEach((avatar, index) => { %>
+                <div class="avatar-card <%= index >= 5 ? 'hidden' : '' %>">
+                    <img src="<%= avatar.image %>" alt="<%= avatar.title %>" />
+                    <h2><%= avatar.title %></h2>
+                    <p class="avatar-desc"><%= avatar.description %></p>
+                    <p class="avatar-price"><%= avatar.price %> 원</p>
+                    <button class="btn btn-primary">Buy</button>
+                </div>
+            <% }) %>
+        </div>
+
+        <!-- Show More Button (only if we have more than 5 avatars) -->
+        <% if (avatars.length > 5) { %>
+            <button class="btn btn-primary" id="showMoreBtn">Show More</button>
+        <% } %>
+
+    <% } else { %>
+        <p>No avatars available.</p>
+    <% } %>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        if (showMoreBtn) {
+            showMoreBtn.addEventListener('click', function() {
+                // Find all avatars currently hidden and reveal them
+                const hiddenAvatars = document.querySelectorAll('.avatar-card.hidden');
+                hiddenAvatars.forEach(card => card.classList.remove('hidden'));
+
+                // Remove the button after clicking
+                showMoreBtn.remove();
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

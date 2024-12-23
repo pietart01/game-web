@@ -305,3 +305,51 @@ nav {
     max-width: none;
   }
 }
+
+/**/
+.hidden {
+  display: none !important;
+}
+
+.avatar-shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.avatar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.avatar-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-card h2 {
+  margin: 0;
+  font-size: var(--font-size-md);
+  color: var(--primary-color);
+}
+
+.avatar-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.avatar-price {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
