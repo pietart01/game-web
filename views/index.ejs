@@ -1,73 +1,11 @@
-<!-- views/index.ejs -->
-<% layout('layout') -%>
-
-<div class="carousel-container relative w-full h-[400px]">
-  <div class="swiper mySwiper w-full h-full">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide bg-center bg-cover brightness-200"
-           style="background-image: url('/images/slide.png');">
-      </div>
-      <!-- Add more slides as needed -->
-      <!--
-      <div class="swiper-slide" style="background-image: url('/images/slide2.png');"></div>
-      <div class="swiper-slide" style="background-image: url('https://picsum.photos/1200/800?random=2');"></div>
-      -->
-    </div>
-  </div>
-  <div class="banner-content absolute inset-0 flex items-center justify-end p-6 bg-black bg-opacity-50 z-10">
-    <% if (isLoggedIn) { %>
-      <%- include('partials/user-profile', {
-      username,
-      cash,
-      gold,
-      silver,
-      avatar_url
-      }) %>
-    <% } else { %>
-      <%- include('partials/login-form') %>
-    <% } %>
-  </div>
-</div>
-
-<div class="layout-content-container max-w-full p-6">
-  <!-- Slot Section -->
-  <section class="category-section mb-8">
-    <h2 class="category-header">Slot</h2>
-    <div class="game-grid">
-      <% const slotGames = [
-        {code: 'TA001', name: 'Ancksunamun', description: 'Game #1', image: '/images/TA001.png'},
-        {code: 'TA002', name: 'Little King', description: 'Game #2', image: '/images/TA002.png'},
-      ]; %>
-
-      <% slotGames.forEach(game => { %>
-        <div class="game-card" onclick="checkLoginAndStartGame('<%= game.code %>')">
-          <div class="game-image" style="background-image: url('<%= game.image %>');"></div>
-          <div>
-            <!-- <p class="game-title"><%= game.name %></p> -->
-            <!-- <p class="game-description"><%= game.description %></p> -->
-          </div>
-        </div>
-      <% }); %>
-    </div>
-  </section>
-
-  <!-- Poker Section -->
-  <section class="category-section mb-8">
-    <h2 class="category-header">Poker</h2>
-    <div class="game-grid">
-      <% const cardGames = [
-        {code: 'CA001', name: '', description: '텍사스 홀덤 포커', image: 'https://images.unsplash.com/photo-1626775238053-4315516eedc9?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'},
-      ]; %>
-
-      <% cardGames.forEach(game => { %>
-        <div class="game-card" onclick="gameStart('<%= game.code %>')">
-          <div class="game-image" style="background-image: url('<%= game.image %>');"></div>
-          <div>
-            <p class="game-title"><%= game.name %></p>
-            <!-- <p class="game-description"><%= game.description %></p> -->
-          </div>
-        </div>
-      <% }); %>
-    </div>
-  </section>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  </body>
+</html>
