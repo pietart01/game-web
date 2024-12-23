@@ -38,7 +38,6 @@ router.get('/', async function(req, res, next) {
     userData.cash = 0;
     userData.username = user.displayName;
   }
-
   res.render('main', { games, isLoggedIn, ...userData });
 });
 
