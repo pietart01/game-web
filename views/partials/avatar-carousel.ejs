@@ -1,0 +1,21 @@
+<section class="avatar-shop">
+  <div class="section-header">
+    <h2>아바타 상점</h2>
+    <a href="/avatar-shop" class="view-more-link">더보기</a>
+  </div>
+
+  <div class="avatar-carousel">
+    <button class="carousel-button prev">&#10094;</button>
+    <div class="avatar-items">
+      <% avatars.forEach(avatar => { %>
+        <%- include('./shop/avatar-item', {
+        image: avatar.image,
+        name: avatar.name,
+        price: avatar.price,
+        stock: avatar.stock
+        }) %>
+      <% }); %>
+    </div>
+    <button class="carousel-button next">&#10095;</button>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section class="customer-service">
+  <div class="service-header">
+    <h3 class="font-kr-medium">1:1 문의내역</h3>
+    <%- include('components/view-more-link', { href: '/support' }) %>
+  </div>
+
+  <div class="empty-container">
+    <span class="empty-icon">📋</span>
+    <p class="empty-message font-kr">등록된 문의 내역이 없습니다.</p>
+    <button class="inquiry-button font-kr">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+      새 문의하기
+    </button>
+  </div>
+</section>

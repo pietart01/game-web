@@ -1,0 +1,75 @@
+/* Notice Item Component */
+.notice-item {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.notice-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  cursor: pointer;
+}
+
+.notice-badge {
+  padding: 0.25rem 0.75rem;
+  background: #ff6b00;
+  color: white;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.notice-content {
+  flex: 1;
+}
+
+.notice-title {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.notice-date {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.expand-button {
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.expand-button svg {
+  transition: transform 0.2s ease;
+}
+
+.expand-button.expanded svg {
+  transform: rotate(180deg);
+}
+
+/* Notice Body */
+.notice-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: #f8f8f8;
+}
+
+.notice-body.expanded {
+  max-height: 500px; /* Adjust based on your content */
+}
+
+.notice-body-content {
+  padding: 1.25rem;
+  border-top: 1px solid #eee;
+  color: #444;
+  line-height: 1.6;
+}

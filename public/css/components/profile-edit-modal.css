@@ -1,0 +1,99 @@
+/* Profile Edit Modal Styles */
+.profile-edit-content {
+  max-width: 600px;
+  padding: 0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.125rem;
+  margin: 0 0 1.5rem;
+  color: #333;
+}
+
+.profile-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.form-group input:read-only {
+  background: #f8f8f8;
+}
+
+.change-button {
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #ff6b00;
+  color: #ff6b00;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #ff6b00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-button:hover {
+  background: #ff8533;
+}

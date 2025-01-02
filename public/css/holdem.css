@@ -1,0 +1,181 @@
+/* Holdem Page Styles */
+.hero-bg {
+  min-height: 600px;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+              url('/images/poker_background_2.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 40px 0;
+}
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Channel List Container */
+.channels {
+  position: relative;
+  padding: 20px 40px;
+  width: 100%;
+}
+
+/* Channel Carousel */
+.channel-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.channel-card {
+  flex: 1;
+  min-width: 240px;
+  max-width: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.channel-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.channel-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.channel-header h3 {
+  margin: 0 0 12px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffd700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.player-count {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  margin-top: 8px;
+}
+
+.channel-buttons {
+  text-align: center;
+  margin-top: auto;
+}
+
+.web-button {
+  width: 100%;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.web-button:hover {
+  background: linear-gradient(135deg, #ffe44d, #ffb733);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+/* Carousel Navigation */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.carousel-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+  left: 20px;
+}
+
+.carousel-button.next {
+  right: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-bg {
+    min-height: 500px;
+    padding: 20px 0;
+  }
+
+  .channels {
+    padding: 20px 10px;
+  }
+
+  .channel-card {
+    min-width: 200px;
+    padding: 20px;
+  }
+
+  .channel-header h3 {
+    font-size: 20px;
+  }
+
+  .carousel-button {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+/* Wide Screen Optimizations */
+@media (min-width: 1200px) {
+  .channel-list {
+    justify-content: center;
+  }
+
+  .channel-card {
+    flex: 0 1 280px;
+  }
+}

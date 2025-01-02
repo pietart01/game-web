@@ -1,0 +1,37 @@
+/* Noto Sans KR Font Declarations */
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Bold.eot);
+  src: url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Bold.eot?#iefix) format('embedded-opentype'),
+       url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Bold.woff2) format('woff2'),
+       url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Bold.woff) format('woff'),
+       url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Medium.eot);
+  src: url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Medium.eot?#iefix) format('embedded-opentype'),
+       url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Medium.woff2) format('woff2'),
+       url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Medium.woff) format('woff'),
+       url(https://hangame-images.toastoven.net/hangame/reactor/hanstarter2/font/NotoSansKR-Medium.ttf) format('truetype');
+}
+
+/* Font Utility Classes */
+.font-kr {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.font-kr-medium {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+}
+
+.font-kr-bold {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 700;
+}

@@ -1,0 +1,19 @@
+<div class="notice-item font-kr">
+  <div class="notice-header" data-notice-id="<%= id %>">
+    <div class="notice-badge font-kr-medium"><%= type %></div>
+    <div class="notice-content">
+      <h3 class="notice-title font-kr-medium"><%= title %></h3>
+      <span class="notice-date">등록일 | <%= date %></span>
+    </div>
+    <button class="expand-button" aria-label="Toggle notice content">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="notice-body">
+    <div class="notice-body-content">
+      <%= content %>
+    </div>
+  </div>
+</div>

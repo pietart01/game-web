@@ -1,0 +1,8 @@
+<%#
+  Parameters:
+  - href: string (required) - The URL to link to
+  - text: string (optional) - The link text, defaults to "더보기"
+%>
+<a href="<%= locals.href %>" class="view-more-link font-kr">
+  <%= locals.text || '더보기' %><span style="font-size: 0.75em; margin-left: 0.25em;">+</span>
+</a>

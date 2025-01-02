@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  
+  <div class="content">
+    <div class="register-container">
+      <div class="register-header">
+        <h1 class="font-kr-medium">회원가입</h1>
+        <div class="step-indicators">
+          <div class="step active" data-step="1">
+            <span class="step-number">1</span>
+            <span class="step-label">약관동의</span>
+          </div>
+          <div class="step" data-step="2">
+            <span class="step-number">2</span>
+            <span class="step-label">본인인증</span>
+          </div>
+          <div class="step" data-step="3">
+            <span class="step-number">3</span>
+            <span class="step-label">정보입력</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="register-content">
+        <%- include('partials/register/step-agreement') %>
+        <%- include('partials/register/step-authentication') %>
+        <%- include('partials/register/step-form') %>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+  <script type="module" src="/js/register.js"></script>
+</body>
+</html>

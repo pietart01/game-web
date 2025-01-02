@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/avatar-shop-page.css">
+  <link rel="stylesheet" href="/css/components/avatar-purchase-modal.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="shop-header">
+      <h1>아바타 상점</h1>
+    </div>
+
+    <div class="avatar-grid">
+      <% avatars.forEach(avatar => { %>
+        <%- include('partials/shop/avatar-item', {
+          image: avatar.image,
+          name: avatar.name,
+          price: avatar.price,
+          stock: avatar.stock
+        }) %>
+      <% }); %>
+    </div>
+  </div>
+
+  <%- include('partials/shop/avatar-purchase-modal') %>
+  <%- include('partials/footer') %>
+
+  <script type="module">
+    import { AvatarPurchaseModal } from '/js/components/avatarPurchaseModal.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const purchaseModal = new AvatarPurchaseModal();
+      
+      // Add click handlers to all buy buttons
+      document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          const avatarItem = button.closest('.avatar-item');
+          const avatarData = {
+            image: avatarItem.querySelector('img').src,
+            name: avatarItem.querySelector('.avatar-name').textContent,
+            price: parseInt(avatarItem.querySelector('.stock').textContent)
+          };
+          purchaseModal.show(avatarData);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

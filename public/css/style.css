@@ -1,0 +1,43 @@
+/* Import design system */
+@import './design-system/typography.css';
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background-color: #f0f0f0;
+}
+
+/* Apply section title styles globally */
+.mypage-section h2,
+.shop-section h2,
+.notice-section h2 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  color: #333;
+  margin-bottom: 1.25rem;
+}
+
+.view-more-link {
+  display: inline-block;
+  padding: 0.25rem 0.75rem; /* Reduced padding */
+  border: 1px solid #000;
+  border-radius: 9999px;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.2s ease;
+  font-size: 0.875rem; /* Added smaller font size */
+}
+
+.view-more-link:hover {
+  background-color: #000;
+  color: #fff;
+}

@@ -1,0 +1,123 @@
+/* Cash Charge Modal Styles */
+.cash-charge-content {
+  max-width: 600px;
+  padding: 0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.charge-info {
+  padding: 20px;
+}
+
+.charge-info h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+
+/* Cash Status */
+.cash-status {
+  background: #f8f8f8;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.cash-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+/* Notice List */
+.notice-list {
+  margin: 20px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.notice-list p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+/* Payment Methods */
+.method-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+.method-tab {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.method-tab.active {
+  background: #ff6b00;
+  color: white;
+  border-color: #ff6b00;
+}
+
+/* Payment Form */
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.payment-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.verify-button {
+  padding: 10px 20px;
+  background: white;
+  border: 1px solid #ff6b00;
+  color: #ff6b00;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background: #ff6b00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background: #ff8533;
+}

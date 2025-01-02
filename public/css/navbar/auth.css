@@ -1,0 +1,68 @@
+/* Authentication section styles */
+.login-section,
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.login-button {
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #ff8533;
+  transform: translateY(-1px);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.user-avatar {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.username {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.logout-button {
+  background: transparent;
+  color: #ff6b00;
+  border: 1px solid #ff6b00;
+  padding: 0.5rem 1rem;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background: #ff6b00;
+  color: white;
+}

@@ -1,0 +1,81 @@
+/* Stats Section Component */
+.stats-section {
+  margin-top: 1.5rem;
+}
+
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.stats-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.stats-label {
+  color: #666;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stats-icon {
+  color: #ff6b00;
+}
+
+.stats-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stats-value .number {
+  color: #333;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.stats-value .unit {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.detail-button {
+  padding: 0.25rem 0.75rem;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #666;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-button:hover {
+  background: #f0f0f0;
+  border-color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-item {
+    padding: 0.875rem;
+  }
+}

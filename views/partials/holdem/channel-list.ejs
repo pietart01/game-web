@@ -1,0 +1,18 @@
+<div class="channels">
+  <button class="carousel-button prev" aria-label="Previous channels">❮</button>
+  <button class="carousel-button next" aria-label="Next channels">❯</button>
+
+  <div class="channel-list">
+    <% channels.forEach(channel => { %>
+      <a href="#" class="channel-card">
+        <div class="channel-header">
+          <h3><%= channel.name %></h3>
+          <span class="player-count"><%= channel.requirement %></span>
+        </div>
+        <div class="channel-buttons">
+          <button class="web-button"><%= '실행' %></button>
+        </div>
+      </a>
+    <% }); %>
+  </div>
+</div>

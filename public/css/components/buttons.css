@@ -1,0 +1,39 @@
+/* Button Base Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Guide Button Variant */
+.btn-guide {
+  background: #0066cc;
+  color: white;
+  margin-top: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 102, 204, 0.2);
+}
+
+.btn-guide:hover {
+  background: #0052a3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 102, 204, 0.25);
+}
+
+.btn-guide:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 102, 204, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .btn-guide {
+    width: 100%;
+  }
+}

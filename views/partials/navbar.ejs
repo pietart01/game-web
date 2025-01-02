@@ -1,0 +1,83 @@
+<%- include('login-modal') %>
+<%- include('cash-charge-modal') %>
+<%- include('confirm-modal') %>
+
+<%- include('confirm-modal') %>
+
+<nav class="navbar font-kr">
+  <div class="nav-container">
+    <div class="nav-links">
+      <a href="/" class="nav-item <%= path === '/' ? 'active' : '' %>">아바타 상점</a>
+      <a href="/holdem" class="nav-item <%= path === '/holdem' ? 'active' : '' %>">홀덤</a>
+      <a href="/slot" class="nav-item <%= path === '/slot' ? 'active' : '' %>">슬롯</a>
+      <a href="/membership" class="nav-item <%= path === '/membership' ? 'active' : '' %>">멤버십</a>
+      <a href="/support" class="nav-item <%= path === '/support' ? 'active' : '' %>">게임문의</a>
+    <% if (isLoggedIn) { %>
+        <a href="/mypage" class="nav-item <%= path === '/mypage' ? 'active' : '' %>">마이페이지</a>
+    <% } %>
+    </div>
+
+    <div class="nav-actions">
+      <% if (isLoggedIn) { %>
+<!--        <button id="cashChargeBtn" class="cash-charge-button font-kr-medium">
+          <span class="icon">💰</span>
+          캐시충전
+        </button>-->
+
+            <!-- Inside your EJS template -->
+
+
+            <button id="cashChargeBtn" class="cash-charge-button">
+                <div class="flex items-center justify-center w-6 h-6 bg-amber-100 bg-opacity-30 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         width="16"
+                         height="16"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         class="translate-y-px">
+                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+                        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+                        <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+                    </svg>
+                </div>
+
+                <div class="flex flex-col items-start leading-tight">
+                    <span class="font-medium">₩<%= typeof cashAmount !== 'undefined' ? cashAmount.toLocaleString() : '0' %></span>
+                    <span class="text-xs opacity-80">충전</span>
+                </div>
+            </button>
+
+        <div class="user-section">
+<!--          <a href="/mypage" class="nav-item <%= path === '/mypage' ? 'active' : '' %>">마이페이지</a>-->
+          <div class="user-profile">
+            <img class="user-avatar" src="<%= user.avatarImage || '/default-avatar.png' %>" alt="User avatar">
+            <span class="username font-kr-medium"><%= user.username %></span>
+          </div>
+          <button id="logoutBtn" class="logout-button font-kr-medium">로그아웃</button>
+        </div>
+      <% } else { %>
+        <div class="login-section">
+          <button id="loginBtn" class="login-button font-kr-medium">로그인</button>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</nav>
+
+<script type="module">
+  import { initAuthUI } from '/js/auth/authUI.js';
+  import { initLogoutHandler } from '/js/auth/logoutHandler.js';
+
+/*
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.querySelector('.navbar')) {
+      initAuthUI();
+    }
+    initLogoutHandler();
+  });
+*/
+</script>

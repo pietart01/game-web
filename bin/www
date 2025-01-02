@@ -4,9 +4,12 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('game-web:server');
-var http = require('http');
+// var app = require('../app');
+// var debug = require('debug')('game-web:server');
+// var http = require('http');
+
+import http from 'http';
+import app from '../app.js';
 
 /**
  * Get port from environment and store in Express.
@@ -87,5 +90,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  // debug('Listening on ' + bind);
 }

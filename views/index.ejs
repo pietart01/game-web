@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="ko">
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/avatar-shop.css">
+  <link rel="stylesheet" href="/css/components/avatar-item.css">
+  <link rel="stylesheet" href="/css/components/notice-board.css">
+  <link rel="stylesheet" href="/css/components/customer-service.css">
+  <link rel="stylesheet" href="/css/components/game-guide.css">
+  <link rel="stylesheet" href="/css/components/buttons.css">
+  <link rel="stylesheet" href="/css/components/avatar-purchase-modal.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+  <%- include('partials/profile-modal') %>
+
+  <div class="content">
+    <%- include('partials/avatar-carousel') %>
+
+    <div class="sections-container">
+      <div class="left-section">
+        <%- include('partials/notice-board') %>
+        <%- include('partials/customer-service') %>
+      </div>
+
+      <div class="right-section">
+        <%- include('partials/game-guide') %>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/shop/avatar-purchase-modal') %>
+  <%- include('partials/footer') %>
+  
+  <script type="module" src="/js/modal.js"></script>
+  <script type="module">
+    import { initProfileModal } from '/js/profileModal.js';
+    import { initCashChargeModal } from '/js/cash-charge-modal.js';
+    import { AvatarPurchaseModal } from '/js/components/avatarPurchaseModal.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initProfileModal();
+      initCashChargeModal();
+
+      // Initialize avatar purchase modal
+      const purchaseModal = new AvatarPurchaseModal();
+      
+      // Add click handlers to all avatar items in the carousel
+      document.querySelectorAll('.avatar-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const avatarData = {
+            image: item.querySelector('img').src,
+            name: item.querySelector('.avatar-name').textContent,
+            price: parseInt(item.querySelector('.stock').textContent)
+          };
+          purchaseModal.show(avatarData);
+        });
+      });
+    });
+  </script>
+  <script type="module" src="/js/avatar-carousel.js"></script>
+</body>
 </html>

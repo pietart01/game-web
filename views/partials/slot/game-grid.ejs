@@ -1,0 +1,11 @@
+<%# Game Grid Component %>
+<div class="game-grid">
+    <% games.forEach(game => { %>
+        <a href="#" class="game-card" onclick="gameStart('<%= game.code %>'); return false;">
+            <img src="<%= game.image %>" alt="<%= game.title %>" class="game-image">
+            <div class="game-info">
+                <h3 class="game-title font-kr-medium"><%= game.title %></h3>
+            </div>
+        </a>
+    <% }); %>
+</div>

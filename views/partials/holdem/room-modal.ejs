@@ -1,0 +1,36 @@
+<%# Holdem Room List Modal %>
+<div id="holdemRoomModal" class="modal holdem-room-modal">
+  <div class="modal-content">
+    <div class="room-list-header">
+      <h2 class="font-kr-medium">홀덤 게임방</h2>
+      <div class="room-actions">
+        <button class="close" aria-label="Close modal">&times;</button>
+      </div>
+    </div>
+
+    <div class="room-controls">
+      <button id="autoJoinButton" class="auto-join-button font-kr">
+        자동 참여
+      </button>
+    </div>
+
+    <div class="room-list-container">
+      <table class="room-list-table font-kr">
+        <thead>
+        <tr>
+<!--          <th>방번호</th>-->
+        <th>입장</th>
+
+        <th>현재인원/최대인원</th>
+          <th>바이인 금액</th>
+          <th>빅블라인드 금액</th>
+          <th>잠금</th>
+        </tr>
+        </thead>
+        <tbody id="roomListBody">
+        <!-- Room list will be populated dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

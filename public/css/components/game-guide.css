@@ -1,0 +1,119 @@
+/* Game Guide Component Styles */
+.game-guide {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.guide-card {
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-card:last-child {
+  margin-bottom: 0;
+}
+
+.guide-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: #1a1a1a;
+  position: relative;
+  z-index: 1;
+}
+
+.guide-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #4a4a4a;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Membership Card Specific Styles */
+.guide-card.membership {
+  background: linear-gradient(135deg, #e6f2ff 0%, #f0f7ff 100%);
+  border: 1px solid #cce4ff;
+}
+
+.guide-card.membership h3 {
+  color: #0066cc;
+}
+
+.guide-card.membership::before {
+  content: '💎';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  opacity: 0.2;
+}
+
+.guide-button {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guide-button:hover {
+  background: #0052a3;
+  transform: translateY(-1px);
+}
+
+/* Safety Card Specific Styles */
+.guide-card.safety {
+  background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+  border: 1px solid #ffd6d6;
+}
+
+.guide-card.safety h3 {
+  color: #cc0000;
+}
+
+.guide-card.safety::before {
+  content: '⚠️';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  opacity: 0.2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .game-guide {
+    padding: 1rem;
+  }
+
+  .guide-card {
+    padding: 1.25rem;
+  }
+
+  .guide-card h3 {
+    font-size: 1rem;
+  }
+
+  .guide-card p {
+    font-size: 0.875rem;
+  }
+
+  .guide-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

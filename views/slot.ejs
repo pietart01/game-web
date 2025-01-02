@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/slot.css">
+  <link rel="stylesheet" href="/css/components/tabs.css">
+  <link rel="stylesheet" href="/css/components/winning-banner.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <%- include('partials/slot/winning-banner') %>
+
+  <div class="hero-bg"></div>
+  <div class="content">
+    <div class="tab-container">
+      <div class="tab-navigation">
+        <button class="tab-button" data-tab="popular">인기게임</button>
+<!--        <button class="tab-button" data-tab="all">전체 게임</button>-->
+      </div>
+
+      <div class="tab-panel" data-panel="popular">
+        <%- include('partials/slot/game-grid', { games: popularGames }) %>
+      </div>
+
+      <div class="tab-panel" data-panel="all">
+        <%- include('partials/slot/game-grid', { games: allGames }) %>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+  <script type="module" src="/js/modal.js"></script>
+  <script type="module" src="/js/slot.js"></script>
+  <script type="module" src="/js/components/winning-banner.js"></script>
+  <script type="module">
+    import { initProfileModal } from '/js/profileModal.js';
+    import { initCashChargeModal } from '/js/cash-charge-modal.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initProfileModal();
+      initCashChargeModal();
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function gameStart(gamecode) {
+      console.log('gamecode = ', gamecode)
+      $.ajax({
+        type: "GET",
+        url: "/game/init",
+        dataType: "json",
+        data: {
+          _method: 'get',
+          game: 'slot',
+          gameCode: gamecode
+        },
+        success: function(data) {
+          if(data.result == true) {
+            const decodedUrl = decodeURIComponent(data.url);
+            console.log('url = ', decodedUrl);
+            var newWindow = window.open(decodedUrl, 'SlotGame', "width=1400, height=930, left=100, right=100, toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=no, scrollbars=no, copyhistory=no");
+            if (!newWindow) {
+              window.location.href = decodedUrl;
+            }
+          } else {
+            alert(data.message);
+            window.location.reload();
+          }
+        },
+        error: function() {
+          alert("실패했습니다.");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

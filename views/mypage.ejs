@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <%- include('partials/head') %>
+  <link rel="stylesheet" href="/css/mypage.css">
+  <link rel="stylesheet" href="/css/profile-modal.css">
+  <link rel="stylesheet" href="/css/components/financial-status.css">
+
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <%- include('partials/mypage/profile-section') %>
+    <%- include('partials/mypage/stats-section') %>
+    <%- include('partials/mypage/cash-history') %>
+    <%- include('partials/mypage/avatar-history') %>
+    <%- include('partials/mypage/financial-status') %>
+  </div>
+
+  <%- include('partials/footer') %>
+  <script type="module" src="/js/mypage.js"></script>
+</body>
+</html>

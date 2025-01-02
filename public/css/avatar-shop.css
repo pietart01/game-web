@@ -1,0 +1,144 @@
+/* Avatar Shop Styles */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Avatar Carousel */
+.avatar-shop {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.avatar-items {
+  display: flex;
+  overflow-x: hidden;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.avatar-item {
+  flex: 0 0 auto;
+  width: 200px;
+  text-align: center;
+}
+
+.avatar-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.carousel-button {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-button.prev { left: 0; }
+.carousel-button.next { right: 0; }
+
+/* Sections Layout */
+.sections-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Notice Board */
+.notice-board {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.notice-list {
+  list-style: none;
+  padding: 0;
+}
+
+.notice-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* Customer Service */
+.customer-service {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Game Guide */
+.game-guide {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.guide-card {
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.guide-card.membership {
+  background: #f0f7ff;
+}
+
+.guide-card.safety {
+  background: #fff0f0;
+}
+
+/* Service Icons */
+.service-icons {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+}
+
+.icon-item img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}

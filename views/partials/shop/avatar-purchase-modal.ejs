@@ -1,0 +1,40 @@
+<%# Avatar Purchase Modal %>
+<div id="avatarPurchaseModal" class="modal">
+  <div class="modal-content avatar-purchase-modal">
+    <div class="modal-header">
+      <h2 class="font-kr-medium">아바타 구매</h2>
+      <button class="close" aria-label="Close modal">&times;</button>
+    </div>
+
+    <div class="avatar-info">
+      <div class="avatar-preview">
+        <img id="previewImage" src="" alt="Avatar preview">
+      </div>
+
+      <div class="info-row">
+        <span class="info-label">아바타명</span>
+        <span id="avatarName" class="info-value"></span>
+      </div>
+
+      <div class="info-row">
+        <span class="info-label">가격</span>
+        <span id="avatarPrice" class="info-value price"></span>
+      </div>
+
+      <div class="info-row">
+        <span class="info-label">부족한 캐시</span>
+        <span id="cashDeduction" class="info-value deduction"></span>
+      </div>
+
+      <div class="purchase-notice">
+        <p class="notice-text">• 구매표시 단위는 차이버니다(캐시) 입니다.</p>
+        <p class="notice-text">• 아바타 구매시 즉시 구매한 아바타로 변경됩니다.</p>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="action-button btn-cancel font-kr">취소</button>
+      <button class="action-button btn-purchase font-kr">구매</button>
+    </div>
+  </div>
+</div>
