@@ -4,7 +4,7 @@
 
   <div class="channel-list">
     <% channels.forEach(channel => { %>
-      <a href="#" class="channel-card">
+      <a href="#" class="channel-card" data-channel-id="<%= channel.channelId %>">
         <div class="channel-header">
           <h3><%= channel.name %></h3>
           <span class="player-count"><%= channel.requirement %></span>

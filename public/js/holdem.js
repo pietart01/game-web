@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   channelCards.forEach(card => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
-      roomModal.show('1');//channelCards.channelId);
+      const channelId = card.getAttribute('data-channel-id'); // Get channelId from the data attribute
+      roomModal.show(channelId); // Pass channelId to roomModal.show
     });
   });
 
