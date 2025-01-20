@@ -9,8 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
   channelCards.forEach(card => {
     card.addEventListener('click', (e) => {
       e.preventDefault();
-      const channelId = card.getAttribute('data-channel-id'); // Get channelId from the data attribute
-      roomModal.show(channelId); // Pass channelId to roomModal.show
+
+      window.pokerStart(1);
+      // const channelId = card.getAttribute('data-channel-id'); // Get channelId from the data attribute
+      // roomModal.show(channelId); // Pass channelId to roomModal.show
     });
   });
 
