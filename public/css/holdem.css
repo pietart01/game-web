@@ -19,6 +19,22 @@
   margin: 0 auto;
 }
 
+/* Mobile styles for single item centering */
+@media (max-width: 768px) {
+  .channel-list:only-child {
+    justify-content: center;
+  }
+
+  .channel-list .channel-card:only-child {
+    margin: 0 auto;
+  }
+
+  /* Hide navigation buttons when there's only one item */
+  .channel-list:only-child ~ .carousel-button {
+    display: none;
+  }
+}
+
 /* Channel List Container */
 .channels {
   position: relative;

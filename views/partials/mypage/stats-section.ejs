@@ -1,6 +1,6 @@
 <div class="mypage-section stats-section">
-  <h2>자감</h2>
-  
+  <h2>아이템</h2>
+
   <div class="stats-grid">
     <div class="stats-row">
       <div class="stats-item">
@@ -11,7 +11,7 @@
           골드머니
         </span>
         <div class="stats-value">
-          <span class="number">0</span>
+          <span class="number"><%= user.balance.toLocaleString() %></span>
           <span class="unit">골드</span>
           <button class="detail-button">충전</button>
         </div>
@@ -40,8 +40,8 @@
           실버머니
         </span>
         <div class="stats-value">
-          <span class="number">27,305</span>
-          <span class="unit">백실버</span>
+          <span class="number"><%= user.silver.toLocaleString() %></span>
+          <span class="unit">실버</span>
           <button class="detail-button">내역</button>
         </div>
       </div>

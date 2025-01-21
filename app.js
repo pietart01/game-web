@@ -180,6 +180,8 @@ app.post('/login', async (req, res) => {
         id: user.id,
         username: user.username,
         avatarUrl: user.avatarUrl || '/images/avatar_placeholder.png', // 'https://dev-api.emp555.com/avatar/avatar_1622.jpg'
+        balance: user.balance,
+        silver: user.silver,
         // any other user fields you want to expose
       },
     });
