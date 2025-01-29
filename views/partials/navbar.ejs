@@ -25,8 +25,6 @@
         </button>-->
 
             <!-- Inside your EJS template -->
-
-
             <button id="cashChargeBtn" class="cash-charge-button">
                 <div class="flex items-center justify-center w-6 h-6 bg-amber-100 bg-opacity-30 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +44,7 @@
                 </div>
 
                 <div class="flex flex-col items-start leading-tight">
-                    <span class="font-medium">₩<%= typeof cashAmount !== 'undefined' ? cashAmount.toLocaleString() : '0' %></span>
+                    <span class="font-medium">₩<%= typeof user.cash !== 'undefined' ? user.cash.toLocaleString() : '0' %></span>
                     <span class="text-xs opacity-80">충전</span>
                 </div>
             </button>
@@ -67,17 +65,6 @@
     </div>
   </div>
 </nav>
-
-<script type="module">
-  import { initAuthUI } from '/js/auth/authUI.js';
-  import { initLogoutHandler } from '/js/auth/logoutHandler.js';
-
-/*
-  document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('.navbar')) {
-      initAuthUI();
-    }
-    initLogoutHandler();
-  });
-*/
-</script>
+<% if (isLoggedIn) { %>
+    <script src="/js/session-refresh.js"></script>
+<% } %>
