@@ -12,6 +12,8 @@ import { checkAuthState } from './middleware/authMiddleware.js';
 import { executeQuery } from './database.js';
 import { IS_DEMO } from './config.js';
 
+const API_URL = 'https://dev-api.emp555.com/gameWeb';
+
 // Initialize environment variables
 dotenv.config({ path: '../.env' });
 
@@ -51,39 +53,83 @@ app.use((req, res, next) => {
 app.use(addViewHelpers);
 app.use(checkAuthState);
 
+
+// Axios instance with default config
+const api = axios.create({
+  baseURL: API_URL,
+  timeout: 5000
+});
+
+// Add token to requests if available
+/*
+api.interceptors.request.use(config => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+*/
+
 // Route handlers
 const routeHandlers = {
   async getAvatars() {
-    return await executeQuery("SELECT price, title as name, image FROM avatar;", []);
+    try {
+      const response = await api.get('/avatars');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching avatars:', error);
+      throw error;
+    }
   },
 
   async getChannels() {
-    return await executeQuery(
-        "SELECT id as channelId, channelName as name, description as requirement, minimum, baseBlindAmount FROM pokerChannel;",
-        []
-    );
+    try {
+      const response = await api.get('/channels');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching channels:', error);
+      throw error;
+    }
   },
 
   async getSlotGames() {
-    return await executeQuery(
-        "SELECT gameName as title, thumbnailUrl as image, gameCode as code FROM gameInfo WHERE gameCategoryId = 0",
-        []
-    );
+    try {
+      const response = await api.get('/slots');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching slot games:', error);
+      throw error;
+    }
   },
 
   async getMemberships() {
-    return await executeQuery(
-        "SELECT id, earnedExp, bonusMoney, monthlyFee, imageUrl, membershipName FROM membership;",
-        []
-    );
+    try {
+      const response = await api.get('/memberships');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching memberships:', error);
+      throw error;
+    }
   },
 
   async authenticateUser(username, password) {
-    const rows = await executeQuery(
-        'SELECT u.*, a.image avatarImage FROM user u JOIN avatar a ON a.id = u.avatarId WHERE username = ? AND passwordHash = ? LIMIT 1;',
-        [username, password]
-    );
-    return rows[0];
+    try {
+      const response = await api.post('/auth', {
+        username,
+        password
+      });
+
+      // Store token
+      if (response.data.token) {
+        // localStorage.setItem('token', response.data.token);
+      }
+
+      return response.data.user;
+    } catch (error) {
+      console.error('Error authenticating:', error);
+      throw error;
+    }
   }
 };
 

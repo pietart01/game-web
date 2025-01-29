@@ -11,7 +11,7 @@
           골드머니
         </span>
         <div class="stats-value">
-          <span class="number"><%= user.balance.toLocaleString() %></span>
+          <span class="number"><%= user && user.balance.toLocaleString() %></span>
           <span class="unit">골드</span>
           <button class="detail-button">충전</button>
         </div>
@@ -24,7 +24,7 @@
           보유 캐시
         </span>
         <div class="stats-value">
-          <span class="number"><%= user.cash.toLocaleString() %></span>
+          <span class="number"><%= user && user.cash.toLocaleString() %></span>
           <span class="unit">캐시</span>
           <button class="detail-button">충전</button>
         </div>
