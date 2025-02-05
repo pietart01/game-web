@@ -12,7 +12,7 @@ import { checkAuthState } from './middleware/authMiddleware.js';
 import { executeQuery } from './database.js';
 import { IS_DEMO } from './config.js';
 
-const API_URL = 'https://dev-api.emp555.com/gameWeb';
+
 
 // Initialize environment variables
 dotenv.config({ path: '../.env' });
@@ -21,6 +21,9 @@ dotenv.config({ path: '../.env' });
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
+
+
+const API_URL = `${process.env.API_URL}/gameWeb`;
 
 // Basic middleware setup
 app.use(express.json());
